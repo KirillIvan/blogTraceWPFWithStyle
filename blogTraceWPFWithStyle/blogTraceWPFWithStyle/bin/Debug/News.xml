@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<CurrentEvents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <news>
+    <News>
+      <Headline>Роборуку наделили способностью определять опасные вещества в воде</Headline>
+      <Content>Исследователи внедрили в роботизированную руку биосенсоры, которые помогут определить в воде наличие загрязняющих и опасных веществ. Об этом пишет Science Robotics.</Content>
+      <Data>29.06.2019 17:18:31</Data>
+      <NameUser>admin admin</NameUser>
+    </News>
+    <News>
+      <Headline>Трансформации</Headline>
+      <Content>Трансформации представляют инструмент изменения положения или размера элементов WPF. Трансформации могут быть полезны в тех ситуациях, когда надо изменить положение элемента, либо анимировать.</Content>
+      <Data>01.07.2019 11:04:40</Data>
+      <NameUser>Кирилл Иванов</NameUser>
+    </News>
+  </news>
+</CurrentEvents>

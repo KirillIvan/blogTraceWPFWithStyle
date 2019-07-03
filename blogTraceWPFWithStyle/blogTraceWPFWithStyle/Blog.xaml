@@ -1,0 +1,141 @@
+﻿<Window x:Class="blogTraceWPFWithStyle.Blog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:blogTraceWPFWithStyle"
+        mc:Ignorable="d"
+        Title="Блог" Height="534" Width="800" Closed="Window_Closed" SizeChanged="Window_SizeChanged" MinHeight="534" MinWidth="800" Icon="logo.ico">
+    <Window.Resources>
+        <Style x:Key="btnMouse" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="btnStyle">
+            <Setter Property="Background" Value="#FF0266FF"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#03fbed"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox" x:Key="tBStyle">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="Foreground" Value="#a5b1bd"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#FFEFF7FE"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Width" Value="300"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="tBlockStyle">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="Foreground" Value="#a5b1bd"/>
+            <Setter Property="Margin" Value="20,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="sPanelStyle">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,10,200,10"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#B0B7C6">
+            <Button Height="40" Width="40" VerticalContentAlignment="Center" Style="{StaticResource btnStyle}" HorizontalAlignment="Left">
+                <Button.Content>
+                    <Image Source="menu.png" Height="20" Width="20" Margin="10"/>
+                </Button.Content>
+            </Button>
+            <TextBlock Text="Блог" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="40,0,0,0" FontSize="20" FontFamily="Segoe Print" Foreground="DarkBlue" FontWeight="Bold" />
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Width="40" HorizontalAlignment="Left" Background="#B0B7C6">
+            <Button Name="news" Height="40" Background="#42A1D7" Click="News_Click">
+                <Button.Content>
+                    <Image Source="news.png" Height="30" Width="30" Margin="4"/>
+                </Button.Content>
+            </Button>
+
+            <Button Name="userCard" Height="40" Click="UserCard_Click" Background="#FF9ACEEB" BorderThickness="0">
+                <Button.Content>
+                    <Image Source="usercard.png" Height="30" Width="30" Margin="4"/>
+                </Button.Content>
+            </Button>
+
+            <Button Name="newArticle" Height="40" Background="#FF9ACEEB" BorderThickness="0" Click="NewArticle_Click">
+                <Button.Content>
+                    <Image Source="newArticle.png" Height="20" Width="20" Margin="9"/>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="btnStyle" Style="{StaticResource btnMouse}" Visibility="Collapsed"/>
+        </StackPanel>
+        <!--752;419-->
+        <StackPanel x:Name="contentPanel" DockPanel.Dock="Left" CanVerticallyScroll="True" Background="#FF2A3846">
+            <ScrollViewer CanContentScroll="True" Height="458" Name="sbPanel">
+                <StackPanel x:Name="newsPanel" />
+            </ScrollViewer>
+            <StackPanel x:Name="userCardPanel" Background="#FF2A3846" Visibility="Collapsed" Width="752">
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Имя:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}" Name="nameBox" TextChanged="NameBox_TextChanged" />
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Фамилия:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="surnameBox" TextChanged="NameBox_TextChanged"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Город:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="cityBox" TextChanged="NameBox_TextChanged"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Возраст:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="ageBox" TextChanged="NameBox_TextChanged"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Логин:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="loginBox" TextChanged="NameBox_TextChanged"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Пароль:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="pswdBox" TextChanged="NameBox_TextChanged"/>
+                </StackPanel>
+                <Button Style="{StaticResource btnStyle}" Name="btnTransform" Content="Изменить" Margin="200,10" Height="50" Click="BtnTransform_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="newArticlePanel" Background="#FF2A3846" Visibility="Collapsed" Width="752">
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Заголовок:" Style="{StaticResource tBlockStyle}"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="headLineBox" TextChanged="NameBox_TextChanged" Text="Заголовок" GotFocus="HeadLineBox_GotFocus" FontSize="17" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource sPanelStyle}">
+                    <TextBlock Text="Статья:" Style="{StaticResource tBlockStyle}" VerticalAlignment="Top"/>
+                    <TextBox Style="{StaticResource tBStyle}"  Name="articleBox" TextChanged="NameBox_TextChanged" Height="250" VerticalScrollBarVisibility="Auto" TextWrapping="WrapWithOverflow" VerticalContentAlignment="Top" AcceptsReturn="True" FontSize="13.5" Text="Текст статьи" GotFocus="ArticleBox_GotFocus"/>
+                </StackPanel>
+                <Button Style="{StaticResource btnStyle}" Name="btnNewArticle" Content="Добавить" Margin="250,10" Height="50" Click="BtnNewArticle_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <items>
+    <User>
+      <Name>admin</Name>
+      <Surname>admin</Surname>
+      <City>default</City>
+      <Age>23</Age>
+      <Login>admin</Login>
+      <Password>123</Password>
+      <Admin>false</Admin>
+    </User>
+    <User>
+      <Name>Кирилл</Name>
+      <Surname>Иванов</Surname>
+      <City>Фрязино</City>
+      <Age>18</Age>
+      <Login>kik</Login>
+      <Password>123</Password>
+      <Admin>false</Admin>
+    </User>
+  </items>
+</Users>
